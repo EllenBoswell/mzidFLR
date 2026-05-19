@@ -26,10 +26,10 @@ def extract_PTMprophet_IDent_df(input,PXD,mod, mod_id, mod_mass_id):
     protein_positions=[]
     df = pd.read_csv(input)
     df['PTM info']=df['PTM info'].fillna("")
-    df['Modifications']=df['Modifications'].astype(str)
-    df['Positions']=df['Positions'].astype(str)
-    df['Modification mass']=df['Modification mass'].astype(str)
-    df['Protein position']=df['Protein position'].astype(str)
+    df['Modifications']=df['Modifications'].fillna("").astype(str)
+    df['Positions']=df['Positions'].fillna("").astype(str)
+    df['Modification mass']=df['Modification mass'].fillna("").astype(str)
+    df['Protein position']=df['Protein position'].fillna("").astype(str)
 
     while df['Modifications'].str.contains("unknown_mod").any():
         df['Mods_temp']=df['Modifications'].str.split(";")
